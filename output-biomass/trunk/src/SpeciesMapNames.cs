@@ -47,5 +47,14 @@ namespace Landis.Extension.Output.Biomass
             varValues[TimestepVar] = timestep.ToString();
             return OutputPath.ReplaceTemplateVars(template, varValues);
         }
+        //---------------------------------------------------------------------
+
+        public static string ReplaceTemplateVars(string template,
+                                                 string species)
+        {
+            varValues[SpeciesVar] = species;
+            varValues[TimestepVar] = "{timestep}";
+            return OutputPath.ReplaceTemplateVars(template, varValues);
+        }
     }
 }

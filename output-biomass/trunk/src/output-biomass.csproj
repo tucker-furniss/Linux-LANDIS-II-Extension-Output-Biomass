@@ -66,12 +66,14 @@
     <Compile Include="IInputParameters.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="IndividualSppBiomassLog.cs" />
     <Compile Include="InputParameters.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="InputParametersParser.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="MetadataHandler.cs" />
     <Compile Include="PlugIn.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -80,6 +82,8 @@
     <Compile Include="SiteVars.cs" />
     <Compile Include="SpeciesMapNames.cs" />
     <Compile Include="IntPixel.cs" />
+    <Compile Include="SppBiomassLog.cs" />
+    <Compile Include="SppBiomassLogLandscape.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
