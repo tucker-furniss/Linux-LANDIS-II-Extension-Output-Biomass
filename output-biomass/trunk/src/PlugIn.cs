@@ -15,7 +15,7 @@ namespace Landis.Extension.Output.Biomass
     public class PlugIn
         : ExtensionMain
     {
-        public static readonly ExtensionType Type = new ExtensionType("output");
+        public static readonly ExtensionType ExtType = new ExtensionType("output");
         public static readonly string ExtensionName = "Biomass Output";
 
         private IEnumerable<ISpecies> selectedSpecies;
@@ -30,7 +30,7 @@ namespace Landis.Extension.Output.Biomass
         //---------------------------------------------------------------------
 
         public PlugIn()
-            : base(ExtensionName, Type)
+            : base(ExtensionName, ExtType)
         {
         }
 
