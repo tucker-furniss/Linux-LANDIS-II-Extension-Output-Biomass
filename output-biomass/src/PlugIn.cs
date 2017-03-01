@@ -6,6 +6,7 @@ using Edu.Wisc.Forest.Flel.Util;
 using Landis.Library.BiomassCohorts;
 using Landis.SpatialModeling;
 using Landis.Library.Biomass;
+using Landis.Library.Metadata;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -18,6 +19,10 @@ namespace Landis.Extension.Output.Biomass
         public static readonly ExtensionType ExtType = new ExtensionType("output");
         public static readonly string ExtensionName = "Biomass Output";
 
+        public static IEnumerable<ISpecies> speciesToMap;
+        public static string speciesTemplateToMap;
+        public static string poolsToMap;
+        public static string poolsTemplateToMap;
         private IEnumerable<ISpecies> selectedSpecies;
         private string speciesMapNameTemplate;
         private string selectedPools;
@@ -25,7 +30,7 @@ namespace Landis.Extension.Output.Biomass
         private IInputParameters parameters;
         private static ICore modelCore;
         private bool makeTable;
-        private StreamWriter log;
+        public static MetadataTable<SummaryLog> summaryLog;
 
         //---------------------------------------------------------------------
 
@@ -59,13 +64,19 @@ namespace Landis.Extension.Output.Biomass
 
             Timestep = parameters.Timestep;
             this.selectedSpecies = parameters.SelectedSpecies;
+            speciesToMap = this.selectedSpecies;
             this.speciesMapNameTemplate = parameters.SpeciesMapNames;
+            speciesTemplateToMap = this.speciesMapNameTemplate;
             this.selectedPools = parameters.SelectedPools;
+            poolsToMap = this.selectedPools;
             this.poolMapNameTemplate = parameters.PoolMapNames;
+            poolsTemplateToMap = this.poolMapNameTemplate;
             this.makeTable = parameters.MakeTable;
 
             if (makeTable)
+            {
                 InitializeLogFile();
+            }
 
             SiteVars.Initialize();
         }
@@ -185,29 +196,8 @@ namespace Landis.Extension.Output.Biomass
         //---------------------------------------------------------------------
         public void InitializeLogFile()
         {
-
-            string logFileName = "spp-biomass-log.csv";
-            PlugIn.ModelCore.UI.WriteLine("   Opening species biomass log file \"{0}\" ...", logFileName);
-            try
-            {
-                log = Landis.Data.CreateTextFile(logFileName);
-            }
-            catch (Exception err)
-            {
-                string mesg = string.Format("{0}", err.Message);
-                throw new System.ApplicationException(mesg);
-            }
-
-            log.AutoFlush = true;
-            log.Write("Time, Ecoregion, NumSites,");
-
-            foreach (ISpecies species in ModelCore.Species)
-                log.Write("{0},", species.Name);
-
-            log.WriteLine("");
-
-
-        }
+            MetadataHandler.InitializeMetadata(parameters.Timestep, "spp-biomass-log.csv");
+        } 
 
 
         //---------------------------------------------------------------------
@@ -249,20 +239,21 @@ namespace Landis.Extension.Output.Biomass
 
             foreach (IEcoregion ecoregion in ModelCore.Ecoregions)
             {
-                log.Write("{0}, {1}, {2}, ",
-                    ModelCore.CurrentTime,                 // 0
-                    ecoregion.Name,                         // 1
-                    activeSiteCount[ecoregion.Index]       // 2
-                    );
+                summaryLog.Clear();
+                SummaryLog sl = new SummaryLog();
+                sl.Time = modelCore.CurrentTime;
+                sl.EcoName = ecoregion.Name;
+                sl.NumActiveSites = activeSiteCount[ecoregion.Index];
+                double[] aboveBiomass = new double[modelCore.Species.Count];
+
                 foreach (ISpecies species in ModelCore.Species)
                 {
-                    log.Write("{0}, ",
-                        (allSppEcos[ecoregion.Index, species.Index] / (double)activeSiteCount[ecoregion.Index])
-                        );
-
+                    aboveBiomass[species.Index] = allSppEcos[ecoregion.Index, species.Index] / (double)activeSiteCount[ecoregion.Index];
                 }
+                sl.AboveGroundBiomass_ = aboveBiomass;
 
-                log.WriteLine("");
+                summaryLog.AddObject(sl);
+                summaryLog.WriteToFile();
             }
         }
         //---------------------------------------------------------------------

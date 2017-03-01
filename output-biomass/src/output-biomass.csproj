@@ -49,6 +49,10 @@
     <Reference Include="Landis.Library.Cohorts">
       <HintPath>lib\Landis.Library.Cohorts.dll</HintPath>
     </Reference>
+    <Reference Include="Landis.Library.Metadata, Version=1.0.1.18786, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\Landis.Library.Metadata.dll</HintPath>
+    </Reference>
     <Reference Include="Landis.SpatialModeling">
       <HintPath>lib\Landis.SpatialModeling.dll</HintPath>
     </Reference>
@@ -69,6 +73,7 @@
     <Compile Include="InputParametersParser.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="MetadataHandler.cs" />
     <Compile Include="PlugIn.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -77,6 +82,7 @@
     <Compile Include="SiteVars.cs" />
     <Compile Include="SpeciesMapNames.cs" />
     <Compile Include="IntPixel.cs" />
+    <Compile Include="SummaryLog.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
