@@ -15,10 +15,9 @@ Species    abiebals
 	   querrubr
 	   thujocci
 	   tiliamer
-	   tsugcana
 
-MapNames  biomass/{species}-{timestep}.img
+MapNames  outputs/biomass/biomass-{species}-{timestep}.img
 
 DeadPools both
 	  
-MapNames  biomass/{pool}-{timestep}.img
+MapNames  outputs/biomass/biomass-{pool}-{timestep}.img
