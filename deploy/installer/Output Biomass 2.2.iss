@@ -1,5 +1,5 @@
 #define PackageName      "Output Biomass"
-#define PackageNameLong  "Extension Biomass Output"
+#define PackageNameLong  "Output Biomass"
 #define Version          "2.2"
 #define ReleaseType      "official"
 #define ReleaseNumber    "2"
