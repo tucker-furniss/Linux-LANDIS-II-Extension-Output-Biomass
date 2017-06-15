@@ -1,4 +1,4 @@
-Title:			README_OutputBiomass2.1
+﻿Title:			README_OutputBiomass2.2
 Project:		LANDIS-II Landscape Change Model
 Project Component:	Extension-Output-Biomass
 Component Deposition:	https://github.com/LANDIS-II-Foundation/Extension-Output-Biomass

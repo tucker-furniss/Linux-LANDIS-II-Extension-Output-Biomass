@@ -17,7 +17,7 @@ namespace Landis.Extension.Output.Biomass
         : ExtensionMain
     {
         public static readonly ExtensionType ExtType = new ExtensionType("output");
-        public static readonly string ExtensionName = "Biomass Output";
+        public static readonly string ExtensionName = "Output Biomass";
 
         public static IEnumerable<ISpecies> speciesToMap;
         public static string speciesTemplateToMap;
