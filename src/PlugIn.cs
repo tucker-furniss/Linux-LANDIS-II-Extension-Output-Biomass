@@ -1,4 +1,4 @@
-//  Copyright 2005-2010 Portland State University, University of Wisconsin
+//  Copyright 2005-2017 Landis-II-Foundation
 //  Authors:  Robert M. Scheller, James B. Domingo
 
 using Landis.Core;
@@ -17,7 +17,7 @@ namespace Landis.Extension.Output.Biomass
         : ExtensionMain
     {
         public static readonly ExtensionType ExtType = new ExtensionType("output");
-        public static readonly string ExtensionName = "Biomass Output";
+        public static readonly string ExtensionName = "Output Biomass";
 
         public static IEnumerable<ISpecies> speciesToMap;
         public static string speciesTemplateToMap;
