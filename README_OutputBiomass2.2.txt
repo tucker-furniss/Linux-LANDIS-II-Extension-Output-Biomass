@@ -81,7 +81,7 @@ a new or modified extension from source code
 ##########################################################
 
 NB. It is recommended that you use Git for version control and change tracking.
-This means cloning the Extension-Base-Harvest reposotory to your local machine.
+This means cloning the Extension-Output-Biomass reposotory to your local machine.
 Help with Git functionality can be found in the ProGit Manual (freely available)
 as a .pdf (https://git-scm.com/book/). A very straighforward Windows/Git interface 
 is "git BASH" (available at https://git-for-windows.github.io/)
@@ -117,8 +117,8 @@ a new or modified extension from source code
 The following steps use both a Git command-line interface (GitBASH for Windows; see above) and  
 the menu-driven options available in Visual Studio (VS). 
 
-The example given below is a specific one and uses the extension, "Extension-Base-Harvest". The repo for this
-extension is available at https://github.com/LANDIS-II-Foundation/Extension-Base-Harvest.
+The example given below is a specific one and uses the extension, "Extension-Output-Biomass". The repo for this
+extension is available at https://github.com/LANDIS-II-Foundation/Extension-Output-Biomass.
 
 
 Substitute, as appropriate, for your extension of interest.
