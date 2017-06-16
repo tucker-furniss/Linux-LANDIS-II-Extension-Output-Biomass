@@ -4,7 +4,7 @@
 #define ReleaseType      "official"
 #define ReleaseNumber    "2"
 
-#define CoreVersion      "6"
+#define CoreVersion      "6.0"
 #define CoreReleaseAbbr  ""
 
 #define ExtDir "C:\Program Files\LANDIS-II\v6\bin\extensions"
