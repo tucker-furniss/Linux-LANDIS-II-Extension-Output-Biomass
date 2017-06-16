@@ -1,4 +1,4 @@
-//  Copyright 2005-2010 Portland State University, University of Wisconsin
+//  Copyright 2005-2017 Landis-II-Foundation
 //  Authors:  Robert M. Scheller, James B. Domingo
 
 using Landis.Core;
