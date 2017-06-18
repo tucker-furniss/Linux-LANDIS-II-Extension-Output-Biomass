@@ -28,9 +28,6 @@ Source: ..\..\src\bin\Debug\Landis.Library.Cohorts.dll; DestDir: {#ExtDir}; Flag
 Source: ..\..\src\bin\Debug\Landis.Library.Metadata.dll; DestDir: {#ExtDir}; Flags:replacesameversion
 
 
-; User Guides are no longer shipped with installer
-;Source: docs\LANDIS-II Biomass Output v2.0 User Guide.pdf; DestDir: {#AppDir}\docs
-
 
 ; Complete example for testing the extension
 Source: ..\examples\*.txt; DestDir: {#AppDir}\examples\Output Biomass; Flags: replacesameversion
