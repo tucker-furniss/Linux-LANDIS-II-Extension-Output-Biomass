@@ -67,9 +67,6 @@
     <Compile Include="IntPixel.cs" />
     <Compile Include="SummaryLog.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <None Include="packages.config" />
-  </ItemGroup> 
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
     <PostBuildEvent>
