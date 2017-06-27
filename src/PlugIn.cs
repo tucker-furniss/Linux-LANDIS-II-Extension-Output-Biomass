@@ -72,11 +72,7 @@ namespace Landis.Extension.Output.Biomass
             this.poolMapNameTemplate = parameters.PoolMapNames;
             poolsTemplateToMap = this.poolMapNameTemplate;
             this.makeTable = parameters.MakeTable;
-
-            if (makeTable)
-            {
-                InitializeLogFile();
-            }
+            MetadataHandler.InitializeMetadata(parameters.Timestep, "spp-biomass-log.csv", makeTable);
 
             SiteVars.Initialize();
         }
@@ -193,12 +189,6 @@ namespace Landis.Extension.Output.Biomass
                 }
             }
         }
-        //---------------------------------------------------------------------
-        public void InitializeLogFile()
-        {
-            MetadataHandler.InitializeMetadata(parameters.Timestep, "spp-biomass-log.csv");
-        } 
-
 
         //---------------------------------------------------------------------
 

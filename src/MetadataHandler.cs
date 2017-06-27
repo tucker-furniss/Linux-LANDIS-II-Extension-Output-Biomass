@@ -14,7 +14,7 @@ namespace Landis.Extension.Output.Biomass
     {
         public static ExtensionMetadata Extension { get; set; }
         
-        public static void InitializeMetadata(int Timestep, string summaryLogName)
+        public static void InitializeMetadata(int Timestep, string summaryLogName, bool makeTable)
         {
 
             ScenarioReplicationMetadata scenRep = new ScenarioReplicationMetadata()
@@ -25,10 +25,9 @@ namespace Landis.Extension.Output.Biomass
             };
 
             Extension = new ExtensionMetadata(PlugIn.ModelCore)
-            //Extension = new ExtensionMetadata()
             {
                 Name = PlugIn.ExtensionName,
-                TimeInterval = Timestep, //change this to PlugIn.TimeStep for other extensions
+                TimeInterval = Timestep, 
                 ScenarioReplicationMetadata = scenRep
             };
 
@@ -36,35 +35,27 @@ namespace Landis.Extension.Output.Biomass
             //          table outputs:   
             //---------------------------------------
 
-            CreateDirectory(summaryLogName);
-            PlugIn.summaryLog = new MetadataTable<SummaryLog>(summaryLogName);
-
-            PlugIn.ModelCore.UI.WriteLine("   Generating summary table...");
-            OutputMetadata tblOut_summary = new OutputMetadata()
+            if (makeTable)
             {
-                Type = OutputType.Table,
-                Name = "SummaryLog",
-                FilePath = PlugIn.summaryLog.FilePath,
-                Visualize = true,
-            };
-            tblOut_summary.RetriveFields(typeof(SummaryLog));
-            Extension.OutputMetadatas.Add(tblOut_summary);
+                CreateDirectory(summaryLogName);
+                PlugIn.summaryLog = new MetadataTable<SummaryLog>(summaryLogName);
+
+                PlugIn.ModelCore.UI.WriteLine("   Generating summary table...");
+                OutputMetadata tblOut_summary = new OutputMetadata()
+                {
+                    Type = OutputType.Table,
+                    Name = "SummaryLog",
+                    FilePath = PlugIn.summaryLog.FilePath,
+                    Visualize = true,
+                };
+                tblOut_summary.RetriveFields(typeof(SummaryLog));
+                Extension.OutputMetadatas.Add(tblOut_summary);
+            }
 
             //2 kinds of maps: species and pool maps, maybe multiples of each?
             //---------------------------------------            
             //          map outputs:         
             //---------------------------------------
-
-            //OutputMetadata mapOut_BiomassRemoved = new OutputMetadata()
-            //{
-            //    Type = OutputType.Map,
-            //    Name = "biomass removed",
-            //    FilePath = @HarvestMapName,
-            //    Map_DataType = MapDataType.Continuous,
-            //    Map_Unit = FieldUnits.Mg_ha,
-            //    Visualize = true,
-            //};
-            //Extension.OutputMetadatas.Add(mapOut_BiomassRemoved);
 
 
             foreach(ISpecies species in PlugIn.speciesToMap)
@@ -137,7 +128,6 @@ namespace Landis.Extension.Output.Biomass
         }
         public static void CreateDirectory(string path)
         {
-            //Require.ArgumentNotNull(path);
             path = path.Trim(null);
             if (path.Length == 0)
                 throw new ArgumentException("path is empty or just whitespace");
@@ -148,7 +138,6 @@ namespace Landis.Extension.Output.Biomass
                 Flel.Util.Directory.EnsureExists(dir);
             }
 
-            //return new StreamWriter(path);
             return;
         }
     }
