@@ -34,8 +34,8 @@
     <Reference Include="Edu.Wisc.Forest.Flel.Util" />
     <Reference Include="Landis.Core" />
     <Reference Include="Landis.Library.AgeOnlyCohorts" />
-    <Reference Include="Landis.Library.Biomass-v1" />
-	<Reference Include="Landis.Library.BiomassCohorts-v2"  />
+    <Reference Include="Landis.Library.Biomass-v1.0.1" />
+	<Reference Include="Landis.Library.BiomassCohorts-v2.0.1"  />
     <Reference Include="Landis.Library.Cohorts" />
     <Reference Include="Landis.Library.Metadata" />
     <Reference Include="Landis.SpatialModeling" />
@@ -71,7 +71,8 @@
   <PropertyGroup>
     <PostBuildEvent>
     </PostBuildEvent>
-  </PropertyGroup>
+</PropertyGroup>
+
   <PropertyGroup>
     <PreBuildEvent>call $(SolutionDir)\install-libs.cmd</PreBuildEvent>
   </PropertyGroup>
