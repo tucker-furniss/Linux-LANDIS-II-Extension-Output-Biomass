@@ -22,8 +22,8 @@ Source: ..\..\src\bin\debug\Landis.Extension.Output.Biomass.dll; DestDir: {#ExtD
 
 ; Requisite auxiliary libraries
 Source: ..\..\src\bin\Debug\Landis.Library.AgeOnlyCohorts.dll; DestDir: {#ExtDir}; Flags: replacesameversion
-Source: ..\..\src\bin\Debug\Landis.Library.Biomass-v1.0.1.dll; DestDir: {#ExtDir}; Flags: replacesameversion
-Source: ..\..\src\bin\Debug\Landis.Library.BiomassCohorts-v2.0.1.dll; DestDir: {#ExtDir}; Flags: replacesameversion
+Source: ..\..\src\bin\Debug\Landis.Library.Biomass-v1.dll; DestDir: {#ExtDir}; Flags: replacesameversion
+Source: ..\..\src\bin\Debug\Landis.Library.BiomassCohorts-v2.dll; DestDir: {#ExtDir}; Flags: replacesameversion
 Source: ..\..\src\bin\Debug\Landis.Library.Cohorts.dll; DestDir: {#ExtDir}; Flags: replacesameversion
 Source: ..\..\src\bin\Debug\Landis.Library.Metadata.dll; DestDir: {#ExtDir}; Flags:replacesameversion
 
