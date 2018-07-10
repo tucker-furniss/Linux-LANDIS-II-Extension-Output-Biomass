@@ -2,7 +2,7 @@
 //  Authors:  Robert M. Scheller, James B. Domingo
 
 using Landis.Core;
-using Edu.Wisc.Forest.Flel.Util;
+using Landis.Utilities;
 using Landis.Library.BiomassCohorts;
 using Landis.SpatialModeling;
 using Landis.Library.Biomass;
