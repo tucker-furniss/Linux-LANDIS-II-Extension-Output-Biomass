@@ -1,4 +1,3 @@
-//  Copyright 2005-2017 Landis-II-Foundation
 //  Authors:  Robert M. Scheller, James B. Domingo
 
 using Landis.Core;
